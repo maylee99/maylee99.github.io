@@ -2,13 +2,449 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fist Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>台灣電力公司大樓訪客無線WIFI登入</title>
+    <link rel="SHORTCUT ICON" href="resource/shortcut.png">
+    <link rel="stylesheet" href="resource/reset.min.css">
+    <style>
+         *,
+         *::before,
+         *::after {
+             box-sizing: border-box;
+         }
+
+         body {
+             background: #37393b;
+             font-family: system-ui;
+         }
+
+         .wrap {
+             max-width: 1024px;
+             overflow: auto;
+             background-color: #a1c5e6;
+             position: relative;
+             width: 100%;
+             margin: 0 auto;
+             color: #27272d;
+             min-height: 100vh;
+         }
+
+         .header {
+             display: flex;
+             justify-content: space-between;
+             background: #ffffffd1;
+             align-items: center;
+             padding: 0 46px;
+             z-index: 2;
+             position: absolute;
+             width: 100%;
+         }
+
+
+         .header-logo img,
+             {
+             width: 250px;
+         }
+
+         .header h1 {
+             font-size: 1.6rem;
+             line-height: 3.4;
+             font-weight: 500;
+             color: #222;
+             overflow: hidden;
+             white-space: nowrap;
+             letter-spacing: .1rem;
+         }
+
+         .login-form {
+             min-width: 300px;
+             width: 40%;
+             margin-top: 3rem;
+             margin-right: 3rem;
+             min-height: 80%;
+             text-align: center;
+             background: #fff;
+             box-shadow: 0px 0px 16px #d1d4e254;
+             padding: 30px 40px;
+             border-radius: 6px;
+             border: 1px solid #f1f2f3;
+         }
+
+         .login-form h3 {
+             font-size: 1rem;
+             font-weight: 700;
+             line-height: 3;
+             color: #181818;
+         }
+
+         input {
+             height: 36px;
+             background: #f1f2f3;
+             border: 2px solid transparent;
+             width: 100%;
+             outline: none !important;
+             margin: 10px 0;
+         }
+
+         input:hover,
+         input:focus {
+             border: 2px solid #00d0be;
+         }
+
+         input,
+         ::placeholder {
+             padding-left: 8px;
+             font-size: 1rem;
+             font-weight: 450;
+             color: #777;
+
+         }
+
+         button[type="submit"] {
+             width: 100%;
+             font-size: 1rem;
+             font-weight: 700;
+             background: #2baca1;
+             cursor: pointer;
+             border-radius: 9px;
+             color: #fff;
+             border: none;
+             padding: 10px 0 10px 20px;
+             margin-top: 1rem;
+             letter-spacing: 20px;
+         }
+
+         button[type="submit"]:hover {
+             background-color: hsl(227deg 12% 30%);
+            transition: .2s;
+         }
+
+         .login-form input[type="checkbox"] {
+             position: absolute;
+             top: 2px;
+             left: 6px;
+             display: inline-block;
+             width: 18px;
+             height: 18px;
+             margin-right: 10px;
+             padding-top: 20px;
+             cursor: pointer;
+         }
+
+         .agree {
+             display: inline-block;
+             position: relative;
+             width: 100%;
+             margin-top: 0;
+             padding: 10px 0 26px 0;
+         }
+
+         .agree span {
+             top: 12px;
+             position: absolute;
+             color: #555;
+             left: 30px;
+
+             font-size: 1rem;
+         }
+
+         .policy {
+             color: #555;
+             text-align: left;
+             height: 200px;
+             overflow: scroll;
+             background: #f1f2f3;
+             padding: 6px 16px;
+             margin-top: 10px;
+         }
+
+         .policy h2 {
+             line-height: 1.6;
+             font-weight: 500;
+             color: #555;
+         }
+
+         .policy p {
+             font-size: .8rem;
+             </div>color: #555;
+             line-height: 1.5;
+         }
+
+         .content-login {
+             display: flex;
+             justify-content: end;
+             align-items: center;
+             padding-top: 86px;
+             background: url(resource/loginbg.png) bottom left;
+             background-size: cover;
+         }
+
+         .content-login h1 {
+             position: absolute;
+             font-size: 3rem;
+             left: 5rem;
+             top: 12rem;
+             font-weight: 700;
+             letter-spacing: .2rem;
+             color: #2c68ada3;
+         }
+
+         footer {
+             font-size: .87rem;
+             text-align: center;
+             padding: 10px 0;
+             width: 100%;
+             padding-top: 1rem;
+             color: #1f3746;
+         }
+
+         footer a {
+             color: #2c4d73;
+             text-decoration: none;
+
+         }
+
+         footer a:hover {
+             #000;
+             text-decoration: underline;
+         }
+
+         .mobile-title {
+             background: #ffffffd1;
+             text-align: center;
+             margin: 0 auto;
+             ;
+             max-width: 100%;
+             padding: 0 40px 20px 40px;
+         }
+
+         .mobile-title-h2 h2 {
+            color: #303239;
+            line-height: 2.4rem;
+             font-size: 1.3rem;
+             font-weight: 600;
+         }
+        
+         @media(max-width: 838px) {
+             .content-login h1 {
+                 font-size: 2.4rem;
+             }
+
+         }
+
+         @media(max-width: 768px) {
+             .wrap {
+                 max-width: 768px;
+             }
+
+             .policy {
+                 max-height: 20%;
+             }
+
+             .header-logo img {
+                 width: 180px;
+             }
+
+             .header h1 {
+                 font-size: 1rem;
+             }
+
+            /* .login-form {
+                padding:14px 20px;
+             }*/
+             .login-form {
+                margin-right: 1rem;
+                padding: 14px 20px;
+            }
+
+             .content-login{
+                width: 100%;
+
+             }
+
+         }
+
+         @media(max-width: 650px) {
+             .content-login h1 {
+                 display: none;
+             }
+         }
+
+         @media(max-width: 500px) {
+             .header {
+                 display: none;
+             }
+             .content-login {
+                 padding-top: 10px;
+             }
+
+             .login-form {
+                 width: 90%;
+                 padding: 10px 20px;
+                 position: relative !important;
+                 margin: 10px auto;
+                 right: 0 !important;
+             }
+
+
+             .mobile-title,.mobile-title-h2 h2{
+                 display: block !important;
+             }
+
+             h2.mobile-title-h2 {
+                color: #333;
+                font-size: 1.3rem;
+                font-weight: 450;
+                padding: 16px 0 0 0;
+                margin: 0 auto;
+                text-align: center;
+                display: block!important;
+             }
+             .mobile-title {
+                background: #ffffffd1;
+                text-align: center;
+                margin: 0 auto;
+                max-width: 100%;
+                vertical-align: middle;
+                padding: 8px 0;
+             }
+             .mobile-title img {
+                width: 160px;
+            }
+         }
+
+         @media(max-width: 414px) {
+             .wrap {
+                 max-width: 414px;
+             }
+
+             .header-logo img {
+                 width: 60px;
+             }
+
+             .policy {
+                 max-height: 20%;
+             }
+
+ /*            .login-form {
+                 width: 90%;
+                 padding: 10px 20px;
+                 position: relative !important;
+                 margin: 10px auto;
+                 right: 0 !important;
+             }*/
+             .content-login{
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+                 margin: 0 auto;
+             }
+
+             .content-login h1 {
+                 display: none;
+             }
+
+             .mobile-title {
+                background: #ffffffd1;
+                text-align: center;
+                margin: 0 auto;
+                max-width: 100%;
+                vertical-align: middle;
+                padding: 8px 0;
+             }
+
+             .mobile-title img{
+                width: 160px;
+             }
+
+             h2.mobile-title-h2{
+                color: #333;
+                font-size: 1rem;
+                font-weight: 450;
+                padding: 16px 0 0 0;
+                margin: 0 auto;
+                text-align: center;
+                display: block!important;
+             }
+         }
+    </style>
 </head>
+
 <body>
-    <h1>Hello!~@2022</h1>
-    1234567
-    
+<form method=POST action="http://captiveportal-login.taitra.org.tw/cgi-bin/login">
+    <div class="wrap">
+        <div class="header">
+            <div class="header-logo">
+            <img src="resource/tpc-logo.png">
+            </div>
+            <h1>台電大樓訪客無線WIFI登入</h1>
+        </div>
+        <div class="mobile-title" style="display: none;">
+            <img src="resource/tpc-logo.png">
+        </div>
+        <h2 class="mobile-title-h2" style="display: none;">台電大樓訪客無線WIFI登入</h2>            
+
+        <div class="content-login">
+            <h1>GUEST LOGIN</h1>
+            <div class="login-form">
+                <input type="text" name="user" value="" placeholder="帳號">
+                <input type="password" name="password" value="" placeholder="密碼">
+                <input name=cmd value="authenticate" type="hidden">
+                <input name=mac value="" type="hidden">
+                <input name=ip value="" type="hidden">
+                <input name=essid value="" type="hidden">
+                <input name=url value="http://www.unicomp.com.tw" type="hidden">
+                <div class="policy">
+                    <h2> 台電資安政策</h2>
+                    <p>台灣電力公司訪客Wi-Fi無線上網服務規章</p>
+                    <p>您好，歡迎使用台灣電力公司提供之訪客 Wi-Fi無線上網服務(以下簡稱本服務)。 本服務係供您於台灣電力公司以行動上網設備，透過該公司熱點(Hotspot)之無線區域網路接取器（AP）連結網際網路。 為保障您的使用權益，請於開始使用本服務成為台灣電力公司Wi-Fi無線上網使用者(以下簡稱使用者)之前，詳細閱覽台灣電力公司Wi-Fi無線上網服務規章(以下簡稱本規章)內容。一旦您開始使用本服務，即表示您已瞭解並同意以下所有本規章內容。如果您不同意本規章內容，應立即停止使用本服務。</p>
+                    <p>一、使用者行為規範 本服務專供使用者作正常合法網路通訊之用，不應以任何方式轉供商業用途，不得影響其他使用者及本公司權益，並應遵守中華民國相關法規及一切使用網際網路之國際慣例。 就使用者使用本服務所為行為，本公司並無監督管控義務，其所生之相關法律責任均由使用者自負，必要時本公司得報請相關單位依法裁處。 使用者有下列情形之一者，本公司有權暫停或終止其使用本服務，使用者不得要求賠償：</p>
+                    <p>1. 竊取、更改、破壞他人資訊者。</p>
+                    <p>2. 擅自複製他人資訊轉售、轉載者。</p>
+                    <p>3. 危害通信或影響其他使用者權益者。</p>
+                    <p>4. 未經他人同意，擅自寄發電子訊息至他人信箱造成困擾者。</p>
+                    <p>5. 於論壇區張貼與主題無關之訊息者。</p>
+                    <p>6. 濫發電子郵件、蓄意破壞他人信箱或其通信設備者。</p>
+                    <p>7. 散播電腦病毒或足以干擾Starbucks Wi-Fi服務正常運作之程式者。</p>
+                    <p>
+                    <p>8. 發表或散佈恐嚇、誹謗、人身攻擊、侵犯他人隱私、色情或其他違背公序良俗之文字、圖片或影音者。</p>
+                    <p>9. 擷取非經所有者正式開放或授權之資源者。</p>
+                    <p>10. 影響台灣電力公司 Wi-Fi系統運作或加重其系統負擔者。</p>
+                    <p>11. 在網路上提供違反各項法令之商品或服務者。</p>
+                    <p>12. 利用或委託他人以本項第4 款之方式從事各項活動者。</p>
+                    <p>13. 其他違反法令或本公司有正當理由認為不適當之行為者。</p>
+                    <p>二、隱私權保護</p>
+                    <p>1. 使用者使用本服務時，並不需要輸入個人資料。然在某些情況下，本服務相關網站或其合作廠商可能會要求使用者登錄個人資料，以便於聯繫、完成交易、提供服務、或處理訂閱程序，然該相關網站或其合作廠商將明白告知其蒐集、處理及利用之目的，使用者可選擇考量是否揭露個人資料。</p>
+                    <p>2. 使用者同意本公司將保留伺服器自行產生之相關紀錄，如使用連線設備之IP位址、cookie、連線時間及使用之瀏覽器等，供作流量分析及網路行為調查，以便改善本服務品質，但前述資料僅作總量分析，不會和特定個人相連結。</p>
+                    <p>3.如有下列情形之一，本公司得於符合相關法令規範之前提下，查看使用者個人或相關電信資料，並將之提供予有權機關或主張其權利受侵害並提出適當證明之第三人：</p>
+                    <p>(1) 司法機關、監察機關或治安機關因偵查犯罪或調查證據所需者；</p>
+                    <p>(2)其他政府機關因執行公權力並有正當理由所需者；</p>
+                    <p>(3)與公眾生命安全有關之機關(構)為緊急救助所需者；</p>
+                    <p>(4) 為執行本使用條款、或使用者違反使用條款；</p>
+                    <p>(5) 為保護本公司系統安全、正常運作或合法權益；</p>
+                    <p>(6) 為保護其他使用者或其他第三人的合法權益。</p>
+                    <p>三、免責事由</p>
+                    <p>1. 本公司保留新增、修改或取消本服務系統或功能全部或一部之權利。
+                    如因情事變更，本公司得暫停或終止本服務之經營，不負任何損害賠償責任。</p>
+                    <p>2.基於系統維護或轉換等需要，本公司得暫時停止或縮短本服務運作時間。</p>
+                    <p>3. 由於本服務之技術與內容具有變異快速之特性，本服務僅依服務當時之功能及現況提供使用，使用者應自行評估瞭解本服務之功能、限制與風險，決定是否使用。對於網路連結速度、所儲存或所傳送之郵件、檔案或資料之安全性、可靠性、完整性、正確性及不斷線等，本公司不負任何擔保責任。無論係環境、無線傳輸技術等因素致生射頻干擾(如封包遺失、瞬斷等)，或因本公司通信網路或系統設備發生障礙、阻斷，導致本服務中斷或無法通信，本公司對於使用者所生之任何直接或間接之損害均不負責。</p>
+                    <p>四、附則</p>
+                    <p>1. 本規章以中華民國法律（不含涉外民事法律適用法或其他類似法規）為準據法。</p>
+                    <p>2. 就本規章涉及之一切爭訟，使用者同意以臺灣臺北地方法院為第一審管轄法院。</p>
+                    <p>3. 本規章若任何一部無效，不影響其他部份之效力。</p>
+                    <p>4.本規章未規定事項，使用者同意遵守其他相關法令及本公司各項相關業務營業規章規定。</p>
+                    <p>五、本公司保留隨時修改本規章內容之權利，並自該內容公告於本服務首頁起生效，不另行通知各使用者。如果使用者不同意本規章之修改內容，請停止使用本服務，否則即視為同意並接受本規章之修改內容。</p>
+                </div>
+                <div class="agree">
+                <label> <input type="checkbox"><span>我同意遵守台電資安政策</span></label>
+                </div>
+                <button type="submit" value="登入">登入</button>
+                <footer>
+                © 2022 Designed by <a href="http://vattensoft.com/">Vattensoft Co., Ltd.</a>
+                </footer>
+            </div>
+        </div>
+    </div>
+</form>
 </body>
 </html>

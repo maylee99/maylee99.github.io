@@ -107,8 +107,19 @@
     .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; margin-top: 8px; }
 
     /* About */
-    .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
+    .about-grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 48px; align-items: start; }
     .about-grid p { color: var(--muted); margin-bottom: 16px; }
+    .about-photo {
+      border-radius: 22px; overflow: hidden; aspect-ratio: 3 / 4;
+      border: 1px solid var(--border); box-shadow: var(--glass-shadow);
+      background: var(--card); position: relative;
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .about-photo.placeholder {
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      background: linear-gradient(135deg, #c9d3cf, #aebfb9); color: #5b6b67; font-size: 0.9rem; padding: 16px;
+    }
+    .about-skills { margin-top: 30px; }
     .skills { display: flex; flex-wrap: wrap; gap: 10px; }
     .chip {
       padding: 8px 15px; border-radius: 10px; font-size: 0.88rem;
@@ -213,22 +224,23 @@
         <h2>關於我</h2>
       </div>
       <div class="about-grid">
+        <div class="about-photo"><img src="assets/me.jpg" alt="May Lee 的照片" loading="lazy" /></div>
         <div>
           <p>我是 May，一位橫跨設計與開發的創作者。喜歡從使用者的角度出發，把複雜的問題拆解成簡單直覺的介面。</p>
           <p>過去專注於 UI/UX 設計與前端實作，熟悉從原型、視覺到上線的完整流程。相信好的設計不只是好看，更要能解決真實的問題。</p>
           <p>工作之外，我喜歡探索新的設計趨勢與工具，持續打磨自己的手感。</p>
-        </div>
-        <div>
-          <div class="kicker" style="margin-bottom:14px;">技能</div>
-          <div class="skills">
-            <span class="chip">UI / UX 設計</span>
-            <span class="chip">Figma</span>
-            <span class="chip">HTML / CSS</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">React</span>
-            <span class="chip">設計系統</span>
-            <span class="chip">原型製作</span>
-            <span class="chip">使用者研究</span>
+          <div class="about-skills">
+            <div class="kicker" style="margin-bottom:14px;">技能</div>
+            <div class="skills">
+              <span class="chip">UI / UX 設計</span>
+              <span class="chip">Figma</span>
+              <span class="chip">HTML / CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">React</span>
+              <span class="chip">設計系統</span>
+              <span class="chip">原型製作</span>
+              <span class="chip">使用者研究</span>
+            </div>
           </div>
         </div>
       </div>

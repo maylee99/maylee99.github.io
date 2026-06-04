@@ -294,6 +294,9 @@
       <p>有專案、合作或只是想打聲招呼都歡迎，填寫下方表單，我會盡快回覆你。</p>
 
       <form class="contact-form" id="contact-form" novalidate>
+        <!-- 反垃圾蜜罐：人類看不到，機器人會自動填，填了就判定為垃圾 -->
+        <input id="cf-company" name="_gotcha" type="text" tabindex="-1" autocomplete="off" aria-hidden="true"
+               style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;" />
         <div class="field">
           <label for="cf-name">姓名</label>
           <input id="cf-name" name="name" type="text" placeholder="你的名字" required />
@@ -350,13 +353,25 @@
       const name = document.getElementById("cf-name").value.trim();
       const email = document.getElementById("cf-email").value.trim();
       const message = document.getElementById("cf-message").value.trim();
+      const trap = document.getElementById("cf-company").value;
 
+      // honeypot：只有機器人會填這個隱藏欄位 → 假裝成功、不真的送出
+      if (trap) {
+        form.reset();
+        setStatus("訊息已送出，謝謝你！🎉", "ok");
+        return;
+      }
       if (!name || !email || !message) {
         setStatus("請把姓名、Email 和訊息都填寫完整 🙏", "err");
         return;
       }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        setStatus("Email 格式好像怪怪的，再檢查一下～", "err");
+      // 務實 email 規則：帳號 + @ + 網域 + 「.」+ 至少 2 個字母結尾
+      if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(email)) {
+        setStatus("Email 格式好像怪怪的，請確認是有效的信箱 ✉️", "err");
+        return;
+      }
+      if (message.length < 5) {
+        setStatus("訊息再多寫一點點吧（至少 5 個字）🙂", "err");
         return;
       }
 
